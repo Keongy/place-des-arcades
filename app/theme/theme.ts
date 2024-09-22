@@ -15,7 +15,7 @@ const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#bb86fc",
+      main: "#000000",
     },
   },
 });

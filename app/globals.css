@@ -6,29 +6,56 @@
 
 html,
 body {
-  height: 100%;
   margin: 0;
   padding: 0;
   background: url('../public/biot.jpeg') no-repeat center center fixed;
   background-size: cover;
 }
 
+/* 
 body::before {
   content: "";
   position: fixed;
-  /* Fixe l'élément par rapport à la fenêtre du navigateur */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.25);
-  /* Fond blanc avec transparence (0.8) */
+  background: rgba(0, 0, 0, 0.25);
   z-index: 1;
-  /* Place la superposition au-dessus du fond mais en dessous du contenu */
-}
+} */
 
 main {
   position: relative;
   z-index: 2;
-  /* Place le contenu principal au-dessus de la superposition */
+}
+
+.fullPage {
+  height: 100vh;
+}
+
+.hideToTop {
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.displayToTop {
+  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.hiddenBottom {
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transition: transform 0.5s ease-in-out;
 }
