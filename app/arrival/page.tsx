@@ -1,30 +1,21 @@
 "use client";
-import {Box, Button, Container, Typography} from "@mui/material";
+import {Box, Button, Typography} from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {DashboardCard} from "../components/dashboard-card";
-import {useEffect, useState} from "react";
-import {useRouter} from "next/navigation";
+import {usePageTransition} from "@/hooks/usePageTransition";
 
 const ArrivalPage = () => {
-  const [isDisplayed, setIsDisplayed] = useState("hiddenBottom");
-  const router = useRouter();
-
-  useEffect(() => {
-    setIsDisplayed("displayToTop");
-  }, []);
-
-  const handleClick = () => {
-    setIsDisplayed("hiddenBottom");
-    setTimeout(() => {
-      router.push("/");
-    }, 500);
-  };
+  const {transitionClassName, handleNavigation} = usePageTransition(
+    "position-bottom-out", // Position initiale en bas (hors écran)
+    "slide-out-down", // Sort vers le bas
+    "slide-in-up" // Entre depuis le bas
+  );
 
   return (
-    <div className={isDisplayed}>
+    <div className={transitionClassName}>
       <Box height="100vh" display="flex" flexDirection="column">
         <Box padding={5}>
-          <Button onClick={handleClick}>
+          <Button onClick={() => handleNavigation("/")}>
             <ArrowBackIosIcon color="warning" />
           </Button>
         </Box>

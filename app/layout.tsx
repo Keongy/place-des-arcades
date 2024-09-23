@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import {ThemeContextProvider} from "./theme/ThemeContext";
 import "./globals.css";
+import ClientWrapper from "./components/client-wrapper";
 
 export const metadata: Metadata = {
   title: "Place des arcades",
@@ -11,7 +12,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body>
-        <ThemeContextProvider>{children}</ThemeContextProvider>
+        <ThemeContextProvider>
+          <ClientWrapper>{children}</ClientWrapper>
+        </ThemeContextProvider>
       </body>
     </html>
   );
