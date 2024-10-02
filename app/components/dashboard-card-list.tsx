@@ -1,6 +1,6 @@
 import {Box, Button, Grid2} from "@mui/material";
 import {DashboardCard, IDashboardCard} from "./dashboard-card";
-import Link from "next/link";
+import {usePageTransition} from "@/hooks/usePageTransition";
 
 interface IDashboardCardConfig extends IDashboardCard {
   location: string;
@@ -16,31 +16,31 @@ export const DashboardCardList: React.FC<IDashboardCardListProps> = ({
   const cardConfig: IDashboardCardConfig[] = [
     {
       title: "Infos arrivée",
-      location: "/arrival",
+      location: "/check-in",
     },
     {
       title: "Infos pratiques",
-      location: "/arrival",
+      location: "/practical",
     },
     {
       title: "Infos départ",
-      location: "/arrival",
+      location: "/check-out",
     },
     {
       title: "Wifi",
-      location: "/arrival",
+      location: "/wifi",
     },
     {
       title: "Autour de moi",
-      location: "/arrival",
+      location: "/around-me",
     },
     {
       title: "Partenaires",
-      location: "/arrival",
+      location: "/partners",
     },
     {
       title: "Livre d'or",
-      location: "/arrival",
+      location: "/guestbook",
     },
   ];
 

@@ -4,7 +4,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {DashboardCard} from "../components/dashboard-card";
 import {usePageTransition} from "@/hooks/usePageTransition";
 
-const ArrivalPage = () => {
+const CheckOutPage = () => {
   const {transitionClassName, handleNavigation} = usePageTransition(
     "position-bottom-out", // Position initiale en bas (hors écran)
     "slide-out-down", // Sort vers le bas
@@ -21,18 +21,18 @@ const ArrivalPage = () => {
         </Box>
         <Box>
           <Typography textAlign="center" variant="h5">
-            Infos Arrivée
+            Informations Départ
           </Typography>
         </Box>
         <Box
-          bgcolor="white"
+          bgcolor="blue"
           flexGrow={1}
           padding={3}
           borderRadius="20px 20px 0 0"
         >
           <Typography textAlign="center">
             Retrouvez toutes les informations pratiques pour votre arrivée de
-            l'hébergement
+            l&apos;hébergement
           </Typography>
           <Box display="flex" justifyContent="center" marginTop="40px">
             <Box display="flex" justifyContent="space-around" width="600px">
@@ -47,4 +47,4 @@ const ArrivalPage = () => {
   );
 };
 
-export default ArrivalPage;
+export default CheckOutPage;

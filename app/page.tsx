@@ -4,25 +4,24 @@ import {useThemeContext} from "./theme/ThemeContext";
 
 import {DashboardCardList} from "./components/dashboard-card-list";
 import {usePageTransition} from "@/hooks/usePageTransition";
+import {usePreloadPages} from "@/hooks/usePreloadPages";
 
 export default function Home() {
   const {toggleTheme, mode} = useThemeContext();
-  const {transitionClassName, handleNavigation} = usePageTransition(
+  const {handleNavigation, transitionClassName} = usePageTransition(
     "position-top-out", // Position initiale à l'écran
     "slide-out-up", // Sort vers le haut
     "slide-in-down" // Arrive du haut à l'entrée
   );
 
-  const handleClick = () => {
-    handleNavigation("/arrival");
-  };
+  usePreloadPages();
 
   return (
     <main>
       <div className={transitionClassName}>
         <Box display="flex" justifyContent="center" mt="50px">
           <Typography fontSize={25}>
-            Bienvenue au livret d'accueil Place des Arcades
+            Bienvenue au livret d&apos;accueil Place des Arcades
           </Typography>
         </Box>
         <Button variant="contained" onClick={toggleTheme}>
@@ -30,7 +29,7 @@ export default function Home() {
         </Button>
 
         <Box display="flex" justifyContent="center">
-          <DashboardCardList handleClick={handleClick} />
+          <DashboardCardList handleClick={handleNavigation} />
         </Box>
       </div>
     </main>
