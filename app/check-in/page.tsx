@@ -38,7 +38,6 @@ const CheckInPage = () => {
             <Box display="flex" justifyContent="space-around" width="600px">
               <DashboardCard title="Tranche horaire d'arrivée" />
               <DashboardCard title="Parking" />
-              <DashboardCard title="Fiche de Police" />
             </Box>
           </Box>
         </Box>

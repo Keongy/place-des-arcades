@@ -18,9 +18,9 @@ export default function Home() {
 
   return (
     <main>
-      <div className={transitionClassName}>
+      <Box className={transitionClassName}>
         <Box display="flex" justifyContent="center" mt="50px">
-          <Typography fontSize={25}>
+          <Typography fontSize={30} fontWeight="bold">
             Bienvenue au livret d&apos;accueil Place des Arcades
           </Typography>
         </Box>
@@ -31,7 +31,7 @@ export default function Home() {
         <Box display="flex" justifyContent="center">
           <DashboardCardList handleClick={handleNavigation} />
         </Box>
-      </div>
+      </Box>
     </main>
   );
 }
