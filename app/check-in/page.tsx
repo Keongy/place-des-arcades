@@ -1,48 +1,44 @@
-"use client";
-import {Box, Button, Typography} from "@mui/material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import {DashboardCard} from "../components/dashboard-card";
-import {usePageTransition} from "@/hooks/usePageTransition";
+'use client';
+import {Box, Typography} from '@mui/material';
+import PageWrapper from '../components/PageWrapper';
+import {DashboardCard} from '../components/dashboard-card';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import {useRouter} from 'next/navigation';
+import {DashboardCardList} from '../components/dashboard-card-list';
 
 const CheckInPage = () => {
-  const {transitionClassName, handleNavigation} = usePageTransition(
-    "position-bottom-out", // Position initiale en bas (hors écran)
-    "slide-out-down", // Sort vers le bas
-    "slide-in-up" // Entre depuis le bas
-  );
-
+  const router = useRouter();
   return (
-    <div className={transitionClassName}>
-      <Box height="100vh" display="flex" flexDirection="column">
-        <Box padding={5}>
-          <Button onClick={() => handleNavigation("/")}>
-            <ArrowBackIosIcon color="warning" />
-          </Button>
-        </Box>
-        <Box>
-          <Typography textAlign="center" variant="h5">
-            Infos Arrivée
-          </Typography>
-        </Box>
-        <Box
-          bgcolor="white"
-          flexGrow={1}
-          padding={3}
-          borderRadius="20px 20px 0 0"
-        >
-          <Typography textAlign="center">
-            Retrouvez toutes les informations pratiques pour votre arrivée de
-            l&apos;hébergement
-          </Typography>
-          <Box display="flex" justifyContent="center" marginTop="40px">
-            <Box display="flex" justifyContent="space-around" width="600px">
-              <DashboardCard title="Tranche horaire d'arrivée" />
-              <DashboardCard title="Parking" />
-            </Box>
-          </Box>
+    <PageWrapper title="Infos Arrivée">
+      <Typography textAlign="center">
+        Retrouvez toutes les informations pratiques pour votre arrivée de
+        l&apos;hébergement
+      </Typography>
+      <Box display="flex" justifyContent="center" marginTop="40px">
+        <Box display="flex" justifyContent="space-around" width="600px">
+          {/* <DashboardCardList
+            handleClick={function (location: string): void {
+              throw new Error('Function not implemented.');
+            }}
+          /> */}
+
+          {/* <DashboardCard
+            icon={InfoOutlinedIcon}
+            title="Tranche horaire d'arrivée"
+            onClick={() => {
+              router.push('/');
+            }}
+          />
+          <DashboardCard
+            icon={InfoOutlinedIcon}
+            title="Parking"
+            onClick={() => {
+              router.push('/');
+            }}
+          /> */}
         </Box>
       </Box>
-    </div>
+    </PageWrapper>
   );
 };
 

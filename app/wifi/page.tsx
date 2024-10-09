@@ -18,7 +18,6 @@ const WifiPage = () => {
   const handlePaperClick = (textToCopy: string) => {
     navigator.clipboard.writeText(textToCopy).then(() => {
       setIsCopied(true);
-      // Réinitialiser l'état après 2 secondes
       setTimeout(() => {
         setIsCopied(false);
       }, 1500);
@@ -30,7 +29,7 @@ const WifiPage = () => {
       <Box height="100vh" display="flex" flexDirection="column">
         <Box padding={5}>
           <Button onClick={() => handleNavigation("/")}>
-            <ArrowBackIosIcon color="warning" />
+            <ArrowBackIosIcon />
           </Button>
         </Box>
 

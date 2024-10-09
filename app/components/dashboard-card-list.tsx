@@ -1,50 +1,19 @@
-import {Box, Button, Grid2} from "@mui/material";
-import {DashboardCard, IDashboardCard} from "./dashboard-card";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import WifiPasswordOutlinedIcon from "@mui/icons-material/WifiPasswordOutlined";
-import InventoryOutlinedIcon from "@mui/icons-material/InventoryOutlined";
-import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import {Box, Button, Grid2} from '@mui/material';
+import {DashboardCard, IDashboardCard} from './dashboard-card';
 
-interface IDashboardCardConfig extends IDashboardCard {
+export interface IDashboardCardConfig extends IDashboardCard {
   location: string;
 }
 
 interface IDashboardCardListProps {
   handleClick: (location: string) => void;
+  cardConfig: IDashboardCardConfig[];
 }
 
 export const DashboardCardList: React.FC<IDashboardCardListProps> = ({
   handleClick,
+  cardConfig,
 }) => {
-  const cardConfig: IDashboardCardConfig[] = [
-    {
-      title: "Infos arrivée",
-      location: "/check-in",
-      icon: ListAltOutlinedIcon,
-    },
-    {
-      title: "Infos pratiques",
-      location: "/practical",
-      icon: InfoOutlinedIcon,
-    },
-    {
-      title: "Infos départ",
-      location: "/check-out",
-      icon: InventoryOutlinedIcon,
-    },
-    {
-      title: "Wifi",
-      location: "/wifi",
-      icon: WifiPasswordOutlinedIcon,
-    },
-    {
-      title: "Autour de moi",
-      location: "/around-me",
-      icon: LocationOnOutlinedIcon,
-    },
-  ];
-
   return (
     <Box maxWidth="850px">
       <Grid2 container spacing={3}>
@@ -53,11 +22,14 @@ export const DashboardCardList: React.FC<IDashboardCardListProps> = ({
             key={index}
             size={{xs: 6, sm: 6, md: 4}}
             container
-            sx={{justifyContent: "center"}}
+            sx={{justifyContent: 'center'}}
           >
-            <Button onClick={() => handleClick(card.location)}>
-              <DashboardCard key={index} title={card.title} icon={card.icon} />
-            </Button>
+            <DashboardCard
+              onClick={() => handleClick(card.location)}
+              key={index}
+              title={card.title}
+              icon={card.icon}
+            />
           </Grid2>
         ))}
       </Grid2>
